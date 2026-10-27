@@ -46,3 +46,4 @@ storage/temp/*
 htmlcov/
 
 .vercel
+.env*
