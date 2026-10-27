@@ -1,0 +1,4 @@
+203.0.113.80 - - [27/Oct/2026:11:00:00 +0000] "GET /admin HTTP/1.1" 403 240 "-" "curl/7.88.1"
+203.0.113.80 - - [27/Oct/2026:11:00:04 +0000] "POST /admin/login HTTP/1.1" 401 120 "-" "curl/7.88.1"
+192.0.2.75 - auditor [27/Oct/2026:11:00:10 +0000] "GET /audit/logs HTTP/1.1" 200 8192 "-" "Mozilla/5.0"
+192.0.2.75 - auditor [27/Oct/2026:11:00:18 +0000] "GET /api/integrity HTTP/1.1" 200 450 "https://host01/audit/logs" "Mozilla/5.0"

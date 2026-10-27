@@ -1,0 +1,27 @@
+{
+  "scenario_id": "scenario-03",
+  "name": "Changed File Integrity Mutation",
+  "description": "Demonstrates post-collection evidence file tampering detection, baseline hash mismatch, and Mutation Radar impact mapping to dependent findings.",
+  "synthetic": true,
+  "default_year": 2026,
+  "timezone_assumption": "UTC",
+  "uncertainty_seconds": 1.0,
+  "sources": [
+    {
+      "filename": "auth.log",
+      "parser": "linux_auth",
+      "expected_records": 5
+    },
+    {
+      "filename": "nginx_access.log",
+      "parser": "nginx_access",
+      "expected_records": 4
+    }
+  ],
+  "mutation_simulation": {
+    "target_file": "auth.log",
+    "mutation_type": "appended_line",
+    "appended_text": "Oct 27 11:00:25 host01 sshd[35109]: Accepted password for root from 203.0.113.80 port 55104 ssh2\n",
+    "expected_result": "MISMATCH"
+  }
+}

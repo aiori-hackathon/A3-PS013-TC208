@@ -1,0 +1,5 @@
+Oct 27 11:00:00 host01 sshd[35100]: Failed password for invalid user root from 203.0.113.80 port 55100 ssh2
+Oct 27 11:00:05 host01 sshd[35102]: Failed password for invalid user root from 203.0.113.80 port 55102 ssh2
+Oct 27 11:00:10 host01 sshd[35105]: Accepted publickey for auditor from 192.0.2.75 port 55110 ssh2
+Oct 27 11:00:12 host01 systemd-logind[912]: New session 210 of user auditor.
+Oct 27 11:00:20 host01 sshd[35105]: pam_unix(sshd:session): session closed for user auditor

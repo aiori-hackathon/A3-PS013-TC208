@@ -1,0 +1,14 @@
+.venv/
+.git/
+.pytest_cache/
+tests/
+__pycache__/
+*.pyc
+storage/*.db
+storage/evidence/*
+storage/reports/*
+storage/temp/*
+.tmp/
+.pip_tmp/
+run_local.bat
+run_local.ps1

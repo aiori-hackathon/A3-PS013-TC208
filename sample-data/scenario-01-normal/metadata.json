@@ -1,0 +1,35 @@
+{
+  "scenario_id": "scenario-01",
+  "name": "Normal Operations & Baseline Authentication",
+  "description": "Baseline scenario demonstrating correlated web reconnaissance, failed SSH probes, and authorized analyst login.",
+  "synthetic": true,
+  "default_year": 2026,
+  "timezone_assumption": "UTC",
+  "uncertainty_seconds": 1.0,
+  "sources": [
+    {
+      "filename": "auth.log",
+      "parser": "linux_auth",
+      "expected_records": 7,
+      "expected_parsed": 7
+    },
+    {
+      "filename": "nginx_access.log",
+      "parser": "nginx_access",
+      "expected_records": 6,
+      "expected_parsed": 6
+    }
+  ],
+  "expected_findings": [
+    {
+      "title": "Automated brute-force probing against SSH from 192.0.2.10",
+      "status": "LIKELY",
+      "confidence": 85
+    },
+    {
+      "title": "Authorized administrative session established by analyst from 192.0.2.20",
+      "status": "CLOSED",
+      "confidence": 95
+    }
+  ]
+}
