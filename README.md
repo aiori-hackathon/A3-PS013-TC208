@@ -13,6 +13,15 @@ Click the thumbnail above to watch our video on YouTube.
 
 ---
 
+## Live Working Demo
+
+**[Click here to access the live demo](https://rushing-quasar-ta934bk-jiznu.vercel.app/#overview)**
+
+> Deployed on Vercel — TraceLens incident timeline and evidence collection platform.
+
+---
+
+
 ## 1. Executive Summary & Objective
 
 Small security teams frequently lack expensive enterprise SIEM and forensic appliances. When responding to incidents across Linux servers and web reverse proxies, analysts face three critical failure points:
