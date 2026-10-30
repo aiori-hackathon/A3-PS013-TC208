@@ -1,0 +1,5 @@
+192.0.2.50 - - [27/Oct/2026:10:47:59 +0000] "GET /api/v1/auth HTTP/1.1" 401 128 "-" "curl/7.88.1"
+192.0.2.50 - - [27/Oct/2026:10:48:00 +0000] "POST /api/v1/auth HTTP/1.1" 401 128 "-" "curl/7.88.1"
+192.0.2.60 - devops [27/Oct/2026:10:48:02 +0000] "POST /api/v1/login HTTP/1.1" 200 450 "-" "Mozilla/5.0"
+192.0.2.60 - devops [27/Oct/2026:10:48:10 +0000] "GET /api/v1/deployments HTTP/1.1" 200 1024 "https://host01/deploy" "Mozilla/5.0"
+192.0.2.60 - devops [27/Oct/2026:10:48:12 +0000] "POST /api/v1/restart HTTP/1.1" 403 64 "https://host01/deploy" "Mozilla/5.0"

@@ -1,0 +1,36 @@
+{
+  "scenario_id": "scenario-02",
+  "name": "Clock Skew & Overlapping Uncertainty",
+  "description": "Synthetic multi-source scenario with known artificial clock offset of +180s on the web proxy log and overlapping uncertainty intervals.",
+  "synthetic": true,
+  "default_year": 2026,
+  "timezone_assumption": "UTC",
+  "uncertainty_seconds": 1.0,
+  "sources": [
+    {
+      "filename": "auth.log",
+      "parser": "linux_auth",
+      "expected_records": 5,
+      "clock_bias_seconds": 0.0
+    },
+    {
+      "filename": "nginx_access.log",
+      "parser": "nginx_access",
+      "expected_records": 5,
+      "clock_bias_seconds": 180.0
+    }
+  ],
+  "expected_skew": {
+    "source_a": "auth.log",
+    "source_b": "nginx_access.log",
+    "expected_offset_seconds": 180.0,
+    "tolerance_seconds": 2.0
+  },
+  "expected_uncertain_intervals": [
+    {
+      "event_a_line": 1,
+      "event_b_line": 2,
+      "note": "Events recorded 1s apart with 1.0s margin produce overlapping [t-1, t+1] intervals -> ORDER UNCERTAIN"
+    }
+  ]
+}

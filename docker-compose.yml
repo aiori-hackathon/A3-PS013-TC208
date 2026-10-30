@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  tracelens:
+    build: .
+    container_name: tracelens-app
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=Production-Demo
+      - DEFAULT_TIMEZONE=UTC
+      - DEFAULT_UNCERTAINTY_MARGIN_SECONDS=1.0
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      - tracelens-storage:/app/storage
+    restart: unless-stopped
+
+volumes:
+  tracelens-storage:
+    driver: local

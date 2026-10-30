@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TraceLens — Incident Timeline and Evidence Collection</title>
+  <meta name="description" content="TraceLens: Lightweight, explainable incident timeline reconstruction and digital evidence collection for small security teams. AIORI-3 Problem Statement PS-013.">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  
+  <!-- Custom Government Forensic Design System -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="tl-app-container">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="tl-sidebar" aria-label="Main Navigation">
+      <div class="tl-brand">
+        <div class="tl-brand-title">
+          <span style="color:#38bdf8;">◈</span> TraceLens
+          <span class="tl-brand-badge">A3-PS013</span>
+        </div>
+        <div class="tl-brand-sub">Team: Threat Tracers | AIORI-3</div>
+      </div>
+
+      <div class="tl-nav-group">Operational Navigation</div>
+      <ul class="tl-nav-list">
+        <li class="tl-nav-item">
+          <a href="#overview" class="tl-nav-link active" data-view="overview" id="nav-overview">
+            <span class="tl-nav-icon">📊</span> Overview
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#vault" class="tl-nav-link" data-view="vault" id="nav-vault">
+            <span class="tl-nav-icon">🛡️</span> Evidence Vault
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#ingestion" class="tl-nav-link" data-view="ingestion" id="nav-ingestion">
+            <span class="tl-nav-icon">⚙️</span> Ingestion & Parsing
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#timeline" class="tl-nav-link" data-view="timeline" id="nav-timeline">
+            <span class="tl-nav-icon">⏱️</span> Incident Timeline
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#blindlens" class="tl-nav-link" data-view="blindlens" id="nav-blindlens">
+            <span class="tl-nav-icon">🔍</span> BlindLens Review
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#mutation" class="tl-nav-link" data-view="mutation" id="nav-mutation">
+            <span class="tl-nav-icon">📡</span> Mutation Radar
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#investigations" class="tl-nav-link" data-view="investigations" id="nav-investigations">
+            <span class="tl-nav-icon">📁</span> Investigations
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#evaluation" class="tl-nav-link" data-view="evaluation" id="nav-evaluation">
+            <span class="tl-nav-icon">📈</span> Evaluation & Benchmarks
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#reports" class="tl-nav-link" data-view="reports" id="nav-reports">
+            <span class="tl-nav-icon">📑</span> Reports
+          </a>
+        </li>
+        <li class="tl-nav-item">
+          <a href="#settings" class="tl-nav-link" data-view="settings" id="nav-settings">
+            <span class="tl-nav-icon">⚙️</span> Settings & Audit
+          </a>
+        </li>
+      </ul>
+
+      <div class="tl-sidebar-footer">
+        <div>Environment: <b>{{ environment }}</b></div>
+        <div style="font-size:0.68rem; margin-top:2px;">SQLite Baseline Persistent</div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Container -->
+    <main class="tl-main" role="main">
+      
+      <!-- Top Header -->
+      <header class="tl-header">
+        <div class="tl-header-left">
+          <div class="tl-breadcrumb" aria-label="Breadcrumb">
+            <span>TraceLens</span>
+            <span>/</span>
+            <span class="current" id="tl-breadcrumb-current">Overview</span>
+          </div>
+        </div>
+        <div class="tl-header-right">
+          <span class="tl-pill tl-pill-healthy" title="Cryptographic Integrity Verified">
+            <span class="tl-pill-dot"></span> System Operational
+          </span>
+          <button class="tl-btn tl-btn-secondary tl-btn-sm" onclick="window.loadScenarioDialog()">
+            🧪 Load Scenario
+          </button>
+          <div class="dropdown">
+            <button class="tl-btn tl-btn-secondary tl-btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              👤 Analyst (Lead)
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm" style="font-size:0.8rem;">
+              <li><h6 class="dropdown-header">Active Session</h6></li>
+              <li><span class="dropdown-item-text text-muted">Role: Lead Forensic Analyst</span></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#settings">Application Audit Log</a></li>
+              <li><a class="dropdown-item" href="/docs" target="_blank">OpenAPI Docs</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Dynamic Content Shell -->
+      <div class="tl-content-body" id="tl-app-content">
+        <!-- Rendered dynamically by app.js -->
+        <div class="d-flex justify-content-center align-items-center p-5 text-muted">
+          <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+          Initializing TraceLens Workspace...
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Container -->
+  <div class="tl-toast-container" id="tl-toast-container" aria-live="polite"></div>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Main ES Module Script -->
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
